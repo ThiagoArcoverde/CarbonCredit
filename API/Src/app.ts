@@ -1,6 +1,6 @@
 import express from 'express'
 import { routes } from './routes'
-import { initializeDatabase } from './Database/database'
+import { Database } from './Database/Database'
 
 class App{
     public express: express.Application
@@ -22,7 +22,7 @@ class App{
     }
 
     private async connectDatabase(){
-        initializeDatabase()
+        new Database()
     }
 }
 export default new App().express

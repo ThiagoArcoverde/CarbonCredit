@@ -1,8 +1,8 @@
-import app from './app'
+import App from './App'
 
 function main(){
     try{
-        app.listen(5000, () => {
+        App.listen(5000, () => {
             console.log("The API has started");
         })
     }catch(err){
