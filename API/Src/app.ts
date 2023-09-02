@@ -1,16 +1,16 @@
 import express from 'express'
 import { routes } from './routes'
+import { database } from './Database/database'
 
 class App{
     public express: express.Application
 
-
-    constructor(){
+    public constructor(){
         this.express = express()
 
         this.middleware()
         this.routes()
-        // this.database()
+        this.connectDatabase()
     }
 
     private middleware(): void{
@@ -21,15 +21,12 @@ class App{
         this.express.use(routes)
     }
 
-    // private async database(){
-    //     try{
-    //         mongoose.set("strictQuery", true)
-    //         console.log('Connecting to the database...')
-    //         await mongoose.connect('mongodb://0.0.0.0:27017')
-    //         console.log('Database connected');
-    //     }catch(err){
-    //         console.error("Error while connecting to the database ", err)
-    //     };
-    // }
+    private async connectDatabase(){
+        database.authenticate().then(() => {
+            console.log('Connection has been established successfully.');
+         }).catch((error) => {
+            console.error('Unable to connect to the database: ', error);
+         });
+    }
 }
 export default new App().express
