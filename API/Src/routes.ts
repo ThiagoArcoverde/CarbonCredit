@@ -5,11 +5,11 @@ const routes = Router()
 
 //GET ROUTES
 
-//POST ROUTES //
-
 // WALLET
 
-routes.post('/wallet', WalletController.createWallet)
+routes.get('/wallet/:id', WalletController.getWalletByID)
+
+//POST ROUTES //
 
 //PUT ROUTES
 
