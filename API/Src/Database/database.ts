@@ -69,10 +69,6 @@ export class Database{
                 type: "DOUBLE",
                 allownull: false
             },
-            purchaseDate: {
-                type: "DATE",
-                allownull: false
-            },
             walletID: {
                 type: "VARCHAR(255)",
                 allownull: false

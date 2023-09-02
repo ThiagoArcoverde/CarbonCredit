@@ -15,7 +15,7 @@ export class VehicleService{
     }
 
     public async getVehicleByID(id: any){
-        return await Database.vehicle.findByPk(id)
+        return await Database.vehicle.findOne()
     }
 
 }
