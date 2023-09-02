@@ -1,6 +1,6 @@
 import express from 'express'
 import { routes } from './routes'
-import { database } from './Database/database'
+import { initializeDatabase } from './Database/database'
 
 class App{
     public express: express.Application
@@ -22,11 +22,7 @@ class App{
     }
 
     private async connectDatabase(){
-        database.authenticate().then(() => {
-            console.log('Connection has been established successfully.');
-         }).catch((error) => {
-            console.error('Unable to connect to the database: ', error);
-         });
+        initializeDatabase()
     }
 }
 export default new App().express
