@@ -11,8 +11,8 @@ export class Database{
     public static company: any
 
     public constructor(){
-        Database.database = new Sequelize("CarbonCredit", "root", "1234567", {
-            host: "localhost",
+        Database.database = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+            host: process.env.DB_HOST,
             dialect: "mysql"
         })
 
