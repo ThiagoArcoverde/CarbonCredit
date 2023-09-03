@@ -55,6 +55,9 @@ routes.get('/partner/company/:accessKey', CompanyController.getCompanyByKey)
 routes.get('/trip/:userID', middlewareAuthJWT, TripController.getTripByUser)
 routes.get('/partner/trip/:companyID', TripController.getTripByCompany)
 
+// USER
+routes.get('/user', middlewareAuthJWT, UserController.getUsers)
+
 //POST ROUTES //
 
 // VEHICLE

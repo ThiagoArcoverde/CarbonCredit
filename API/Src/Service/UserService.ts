@@ -82,4 +82,9 @@ export class UserService {
         const user = await Database.user.findByPk(id)
         return user
     }
+
+    public async getUsers(){
+        const userList = await Database.user.findAll()
+        return userList
+    }
 }

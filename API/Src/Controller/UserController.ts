@@ -52,6 +52,22 @@ class UserController {
         }
     }
 
+    public async getUsers(req: Request, res: Response){
+        try{
+            const userList = await new UserService().getUsers()
+            if(userList === null){
+                res.sendStatus(404)
+            }else{
+                res.statusCode = 200
+                res.send(userList)
+            }
+        }catch(error){
+            res.statusCode = 500
+            res.send(error)
+        }
+
+    }
+
 }
 
 export default new UserController()
