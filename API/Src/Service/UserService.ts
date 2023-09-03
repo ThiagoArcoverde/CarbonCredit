@@ -10,7 +10,7 @@ export class UserService {
         const encryptedPassword = Crypto.createHash('sha256').update(password).digest('hex')
         const isEmailUsed = await this.getUserByEmail(email)
         const isTelephoneUsed = await this.getUserByTelephone(telephone)
-        if(isEmailUsed !== null || isTelephoneUsed !== null){
+        if (isEmailUsed !== null || isTelephoneUsed !== null) {
             return 409
         }
         const walletID = await new WalletService().addWallet()
@@ -50,7 +50,7 @@ export class UserService {
             throw new Error("The API was not able to find an internal token")
         }
 
-        var token = jwtService.sign(password, TOKEN, { expiresIn: '24h' })
+        var token = jwtService.sign({password: password}, TOKEN, { expiresIn: '1d' })
         let responseObject = {
             token: token,
             user: user.dataValues
@@ -75,6 +75,11 @@ export class UserService {
 
     public async getUserByTelephone(telephone: string) {
         const user = await Database.user.findOne({ where: { telephone: telephone } })
+        return user
+    }
+
+    public async getUserByID(id: any) {
+        const user = await Database.user.findByPk(id)
         return user
     }
 }
