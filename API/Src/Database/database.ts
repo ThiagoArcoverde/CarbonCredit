@@ -133,7 +133,7 @@ export class Database{
                 type: "INTEGER",
                 allownull: false
             },
-            keyAccess: {
+            accessKey: {
                 type: "VARCHAR(255)",
                 allownull: false
             }
