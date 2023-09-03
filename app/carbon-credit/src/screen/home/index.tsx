@@ -67,7 +67,7 @@ export const Home = () => {
                 }
               />
             }
-            title="Carbom credits"
+            title="Carbon credits"
             status="Carbon emmission avoided"
             amount={5}
             carbon={2}
