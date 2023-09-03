@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
   label: {
     fontSize: theme.fonts.md,
     marginBottom: 8,
-    color: "black",
+    color: theme.colors.gray,
   },
   container: {},
 });
