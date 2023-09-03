@@ -4,8 +4,14 @@ import { style } from "./style";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link } from "@react-navigation/native";
+import { useNavigation, ParamListBase } from "@react-navigation/native";
 
-const Login: React.FC = () => {
+export const Login: React.FC<any> = () => {
+  const navigation = useNavigation();
+  function signIn() {
+    navigation.navigate("Home" as never);
+  }
+
   return (
     <View style={style.container}>
       <View style={style.content}>
@@ -18,7 +24,7 @@ const Login: React.FC = () => {
         </View>
         <Input label="E-mail" />
         <Input label="Password" />
-        <Button>Login</Button>
+        <Button onPress={signIn}>Login</Button>
       </View>
       <Text style={style.linkContainer}>
         Don't have an account?{" "}
@@ -29,5 +35,3 @@ const Login: React.FC = () => {
     </View>
   );
 };
-
-export default Login;

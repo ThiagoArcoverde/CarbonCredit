@@ -4,15 +4,18 @@ import { Text, View } from "react-native";
 import { style } from "./style";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  title: string;
 }
 
-export const TopBar: React.FC<Props> = ({ children }) => {
+export const TopBar: React.FC<Props> = ({ children, title }) => {
   return (
     <View style={style.container}>
       <View style={style.header}>
-        <Text>Connected Partners</Text>
-        <Link to="/">See all</Link>
+        <Text style={style.text}>{title}</Text>
+        <Link style={style.link} to="/">
+          see all
+        </Link>
       </View>
       <View style={style.body}>{children}</View>
     </View>

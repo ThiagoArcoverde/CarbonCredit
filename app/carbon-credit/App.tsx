@@ -1,12 +1,20 @@
+// import "react-native-gesture-handler";
+
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import Login from "./src/screen/login";
+import { SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+
+import { Router } from "./src/routes";
 import { Home } from "./src/screen/home";
 
 export default function App() {
   return (
-    <SafeAreaView style={{ width: "100%" }}>
-      <Home />
-    </SafeAreaView>
+    // <SafeAreaView style={{ width: "100%" }}>
+    //   <StatusBar />
+    //   <NavigationContainer>
+    //     <Router />
+    //   </NavigationContainer>
+    // </SafeAreaView>
+    <Home />
   );
 }
