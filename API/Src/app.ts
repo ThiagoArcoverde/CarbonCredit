@@ -1,11 +1,12 @@
 import express from 'express'
+import {Request, Response} from 'express'
 import { routes } from './routes'
 import { Database } from './Database/Database'
 
-class App{
+class App {
     public express: express.Application
 
-    public constructor(){
+    public constructor() {
         this.express = express()
 
         this.middleware()
@@ -13,15 +14,16 @@ class App{
         this.connectDatabase()
     }
 
-    private middleware(): void{
+    private middleware(): void {
         this.express.use(express.json());
+
     }
 
-    private routes() : void{
+    private routes(): void {
         this.express.use(routes)
     }
 
-    private async connectDatabase(){
+    private async connectDatabase() {
         new Database()
     }
 }

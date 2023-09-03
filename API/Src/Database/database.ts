@@ -39,7 +39,11 @@ export class Database{
             },
             email: {
                 type: "VARCHAR(255)",
-                allownull: false
+                allownull: true
+            },
+            telephone: {
+                type: "VARCHAR(255)",
+                allownull: true
             },
             birthday: {
                 type: "DATE",

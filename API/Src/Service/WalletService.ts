@@ -2,13 +2,13 @@ import { Database } from "../Database/Database";
 
 export class WalletService {
 
-    public async addWallet() {
+    public async addWallet() : Promise<any> {
         try {
             const newWallet = await Database.wallet.create({
                 credit: 0.0,
                 carbonSaved: 0.0
             })
-            return newWallet
+            return newWallet.id
         } catch (error: any) {
             return error
         }
