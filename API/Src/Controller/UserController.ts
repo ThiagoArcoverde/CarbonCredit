@@ -46,6 +46,7 @@ class UserController {
                 res.send(user)
             }
         } catch (error) {
+            console.log(error)
             res.statusCode = 500
             res.send(error)
         }

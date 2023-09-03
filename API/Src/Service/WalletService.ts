@@ -61,7 +61,7 @@ export class WalletService {
             return 404
         }else{
             try{
-                await Database.wallet.update({ credit: (wallet.carbonSaved + carbonSaved)}, {
+                await Database.wallet.update({ carbonSaved: (wallet.carbonSaved + carbonSaved)}, {
                     where: {
                         id: id
                     }
